@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MPSProject">
+    <projectModules>
+      <modulePath path="$PROJECT_DIR$/languages/Sisyphus.build.mps.runner/Sisyphus.build.mps.runner.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/Sisyphus.recipe/Sisyphus.recipe.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/Sisyphus.boot/Sisyphus.boot.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/Sisyphus.build/Sisyphus.build.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/empty/empty.msd" folder="" />
+    </projectModules>
+  </component>
+</project>

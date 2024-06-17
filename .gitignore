@@ -1,0 +1,15 @@
+build/
+classes_gen/
+source_gen/
+source_gen.caches/
+
+build_distribution.xml
+build_sisyphus.xml
+sisyphus-run.xml
+
+# Java
+target/
+.idea
+
+# General
+.DS_Store
