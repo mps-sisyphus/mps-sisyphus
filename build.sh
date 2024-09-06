@@ -18,33 +18,28 @@ if [ -d "$MPS_HOME/jbr" ]; then
   esac
 elif [ -z "${JAVA_HOME:-}" ]; then
   echo "JAVA_HOME is missing."
-  exit -1;
-elif [ -f "${JAVA_HOME}/bin/java" ]; then
+  exit -1
+fi
+
+if [ ! -f "${JAVA_HOME}/bin/java" ]; then
   echo "Invalid JAVA_HOME ('${JAVA_HOME}')."
-  exit -1;
+  exit -1
 fi
 
 (cd runtime/sisyphus-tool && mvn package)
 
 export ANT_HOME="$MPS_HOME/lib/ant/lib"
 
-"$JAVA_HOME/bin/java" \
-	-cp "$ANT_HOME/ant.jar:$ANT_HOME/ant-launcher.jar:$ANT_HOME/ant-junit.jar" \
-	-Dmps.home="$MPS_HOME" \
-	-Dant.home="$ANT_HOME" \
-	org.apache.tools.ant.launch.Launcher \
-	-f build_build.xml generate build
-
-"$JAVA_HOME/bin/java" \
-	-cp "$ANT_HOME/ant.jar:$ANT_HOME/ant-launcher.jar:$ANT_HOME/ant-junit.jar" \
-	-Dmps.home="$MPS_HOME" \
-	-Dant.home="$ANT_HOME" \
-	org.apache.tools.ant.launch.Launcher \
-	-f build_sisyphus.xml generate build
-
-"$JAVA_HOME/bin/java" \
-  -cp "$ANT_HOME/ant.jar:$ANT_HOME/ant-launcher.jar:$ANT_HOME/ant-junit.jar" \
-	-Dmps.home="$MPS_HOME" \
-	-Dant.home="$ANT_HOME" \
-	org.apache.tools.ant.launch.Launcher \
-	-f build_distribution.xml generate build
+for script in build_build.xml build_sisyphus.xml build_distribution.xml; do
+  if [ -f "$script" ]; then
+  "$JAVA_HOME/bin/java" \
+    -cp "$ANT_HOME/ant.jar:$ANT_HOME/ant-launcher.jar:$ANT_HOME/ant-junit.jar" \
+    -Dmps.home="$MPS_HOME" \
+    -Dant.home="$ANT_HOME" \
+    org.apache.tools.ant.launch.Launcher \
+    -f "$script" generate build
+  else
+    echo "[ERROR] '$script' not found."
+    exit -1
+  fi
+done
