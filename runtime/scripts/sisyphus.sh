@@ -26,16 +26,17 @@ if [ -d "$MPS_HOME/jbr" ]; then
   esac
 elif [ -z "${JAVA_HOME:-}" ]; then
   echo "JAVA_HOME is missing."
-  exit -1;
-elif [ -f "${JAVA_HOME}/bin/java" ]; then
-  echo "Invalid JAVA_HOME ('${JAVA_HOME}')."
-  exit -1;
+  exit -1
 fi
 
-export ANT_HOME="$MPS_HOME/lib/ant/lib"
+if [ ! -f "${JAVA_HOME}/bin/java" ]; then
+  echo "Invalid JAVA_HOME ('${JAVA_HOME}')."
+  exit -1
+fi
+
 export SISYPHUS_HOME
 
 # Run Sisyphus.
 "$JAVA_HOME/bin/java" \
   -cp "$SISYPHUS_HOME/runtime/sisyphus-tool.jar" \
-  org.mps_sisyphus.App
+  org.mps_sisyphus.App $@
