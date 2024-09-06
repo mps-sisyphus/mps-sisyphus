@@ -116,8 +116,8 @@ public final class Platform {
     private Path gitExecutable() {
         final String pathVariable = System.getenv("PATH");
         if (pathVariable != null) {
-            for (String item : pathVariable.split(pathSeparator())) {
-                final Path path = Path.of(item).resolve("git");
+            for (String item : pathVariable.split(pathVariableSeparator())) {
+                final Path path = Path.of(item).resolve(osFamily == OSFamily.Windows ? "git.exe" : "git");
                 if (Files.exists(path)) {
                     return path;
                 }
@@ -126,14 +126,15 @@ public final class Platform {
         return null;
     }
 
-    private String pathSeparator() {
+    public String pathVariableSeparator() {
         return osFamily == OSFamily.Windows ? ";" : ":";
     }
 
     public int runGit(final List<String> args, final Path workingDir) {
         Path git = gitExecutable();
         if (git == null) {
-            throw new RuntimeException("Git executable not found");
+            logger.error("Git executable not found. Add it to the PATH variable.");
+            throw new RuntimeException("Git executable not found.");
         }
         return runExecutable(git, args, workingDir);
     }

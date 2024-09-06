@@ -21,7 +21,9 @@ sh build.sh
 1. Copy `build/Sisyphus/Sisyphus` to the `plugins` folder of your MPS installation.
 2. Create a new solution in your project with a new model and add the `Sisyphus.recipe` language.
 3. Create a new `recipe`
-4. Run `$MPS_HOME/plugins/Sisyphus/bin/sisyphus.sh` to build your project.
+4. To build your project run:
+    * On Linux or MacOS: `$MPS_HOME/plugins/Sisyphus/bin/sisyphus.sh`.
+    * On Windows: `%MPS_HOME%\plugins\Sisyphus\bin\sisyphus.bat`.
 
 ## License
 

@@ -44,7 +44,7 @@ public class MPSBuild implements ITask {
 
         final List<String> args = new ArrayList<>();
         args.add("-cp");
-        args.add(String.join(":", antLibs(antHome)));
+        args.add(String.join(platform.pathVariableSeparator(), antLibs(antHome)));
         args.add(String.format("-Dmps.home=%s", mpsHome.toAbsolutePath()));
         args.add(String.format("-Dant.home=%s", antHome.toAbsolutePath()));
         args.add(String.format("-Dsisyphus.plugins=%s", sisyphusMpsPlugins));

@@ -130,7 +130,7 @@ public class Project {
 
         List<String> args = new ArrayList<>();
         args.add("-cp");
-        args.add(antHome.resolve(Path.of("ant.jar")).toAbsolutePath() + ":" + antHome.resolve("ant-launcher.jar").toAbsolutePath());
+        args.add(antHome.resolve(Path.of("ant.jar")).toAbsolutePath() + platform.pathVariableSeparator() + antHome.resolve("ant-launcher.jar").toAbsolutePath());
         args.add("-Dmps.home=" + mpsHome);
         args.add("-Dant.home=" + antHome.toAbsolutePath());
         args.add("-Dsisyphus.home=" + Platform.instance().sisyphusHome());

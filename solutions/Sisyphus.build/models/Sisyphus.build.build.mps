@@ -13,6 +13,7 @@
     <language id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build">
       <concept id="5481553824944787378" name="jetbrains.mps.build.structure.BuildSourceProjectRelativePath" flags="ng" index="55IIr" />
       <concept id="9126048691955220717" name="jetbrains.mps.build.structure.BuildLayout_File" flags="ng" index="28jJK3">
+        <child id="9126048691955220774" name="parameters" index="28jJR8" />
         <child id="9126048691955220762" name="path" index="28jJRO" />
       </concept>
       <concept id="7321017245476976379" name="jetbrains.mps.build.structure.BuildRelativePath" flags="ng" index="iG8Mu">
@@ -55,6 +56,9 @@
       </concept>
       <concept id="7389400916848153117" name="jetbrains.mps.build.structure.BuildSourceMacroRelativePath" flags="ng" index="398BVA">
         <reference id="7389400916848153130" name="macro" index="398BVh" />
+      </concept>
+      <concept id="4198392933254416812" name="jetbrains.mps.build.structure.BuildLayout_CopyFilterFixCRLF" flags="ng" index="3co7Ac">
+        <property id="4198392933254416822" name="eol" index="3co7Am" />
       </concept>
       <concept id="5617550519002745364" name="jetbrains.mps.build.structure.BuildLayout" flags="ng" index="1l3spV" />
       <concept id="5617550519002745363" name="jetbrains.mps.build.structure.BuildProject" flags="ng" index="1l3spW">
@@ -427,6 +431,22 @@
                   </node>
                 </node>
               </node>
+            </node>
+          </node>
+          <node concept="28jJK3" id="23rOux4$sL0" role="39821P">
+            <node concept="55IIr" id="23rOux4$sL2" role="28jJRO">
+              <node concept="2Ry0Ak" id="23rOux4$sLN" role="iGT6I">
+                <property role="2Ry0Am" value="runtime" />
+                <node concept="2Ry0Ak" id="23rOux4$sLQ" role="2Ry0An">
+                  <property role="2Ry0Am" value="scripts" />
+                  <node concept="2Ry0Ak" id="23rOux4$sLV" role="2Ry0An">
+                    <property role="2Ry0Am" value="sisyphus.bat" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3co7Ac" id="23rOux4$sNy" role="28jJR8">
+              <property role="3co7Am" value="3D3G23Q8WAM/crlf" />
             </node>
           </node>
         </node>
