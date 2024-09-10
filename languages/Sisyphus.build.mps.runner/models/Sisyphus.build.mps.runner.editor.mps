@@ -120,7 +120,7 @@
       <node concept="3EZMnI" id="6rDosczKbVo" role="3EZMnx">
         <node concept="2iRkQZ" id="6rDosczKbVp" role="2iSdaV" />
         <node concept="1iCGBv" id="5iKxrmkn83n" role="3EZMnx">
-          <ref role="1NtTu8" to="as3y:5iKxrmkn6qh" />
+          <ref role="1NtTu8" to="as3y:5iKxrmkn6qh" resolve="solution" />
           <node concept="1sVBvm" id="5iKxrmkn83r" role="1sWHZn">
             <node concept="3SHvHV" id="5iKxrmkn83F" role="2wV5jI" />
           </node>
@@ -142,7 +142,7 @@
                         <node concept="2OqwBi" id="6rDosczKU5D" role="2Oq$k0">
                           <node concept="pncrf" id="6rDosczKTYn" role="2Oq$k0" />
                           <node concept="3TrEf2" id="6rDosczKUAU" role="2OqNvi">
-                            <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" />
+                            <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" resolve="solution" />
                           </node>
                         </node>
                         <node concept="3x8VRR" id="6rDosczKXGV" role="2OqNvi" />
@@ -192,7 +192,7 @@
       </node>
       <node concept="3F2HdR" id="3a3EL8RMVD$" role="3EZMnx">
         <property role="2czwfO" value="," />
-        <ref role="1NtTu8" to="as3y:3a3EL8RMRJt" />
+        <ref role="1NtTu8" to="as3y:3a3EL8RMRJt" resolve="requiredPlugin" />
         <node concept="l2Vlx" id="3a3EL8S7I$w" role="2czzBx" />
       </node>
     </node>

@@ -2,7 +2,7 @@
 <model ref="r:14e89394-b310-48bc-ba27-4c640c2b78ba(Sisyphus.build.build)">
   <persistence version="9" />
   <languages>
-    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="7" />
+    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="8" />
     <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="0" />
     <use id="ab5243aa-072b-4d28-98b9-21745a6642ca" name="Sisyphus.build.mps.runner" version="0" />
   </languages>
@@ -139,7 +139,7 @@
       </concept>
       <concept id="868032131020265945" name="jetbrains.mps.build.mps.structure.BuildMPSPlugin" flags="ng" index="3b7kt6" />
       <concept id="5253498789149381388" name="jetbrains.mps.build.mps.structure.BuildMps_Module" flags="ng" index="3bQrTs">
-        <property id="1500819558096356884" name="doNotCompile" index="2GAjPV" />
+        <property id="2928402740576877067" name="javaCode" index="3vZFNd" />
         <child id="5253498789149547825" name="sources" index="3bR31x" />
         <child id="5253498789149547704" name="dependencies" index="3bR37C" />
       </concept>
@@ -532,7 +532,7 @@
         <ref role="m$_y1" to="ffeo:6WtY9M1bDO_" resolve="jetbrains.mps.ide.java" />
       </node>
       <node concept="m$_yC" id="4vz$TZzHL5T" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:5HVSRHdVm9a" />
+        <ref role="m$_y1" to="ffeo:5HVSRHdVm9a" resolve="jetbrains.mps.build" />
       </node>
       <node concept="m$_yC" id="cTNzgEuT2C" role="m$_yJ">
         <ref role="m$_y1" to="ffeo:cOLqWIvEps" resolve="jetbrains.mps.build.ui" />
@@ -541,28 +541,28 @@
         <ref role="m$_y1" to="ffeo:16mx0EU4lyh" resolve="jetbrains.mps.ide" />
       </node>
       <node concept="m$_yC" id="7uCtVZmmJo1" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:6EN03E8oSte" />
+        <ref role="m$_y1" to="ffeo:6EN03E8oSte" resolve="jetbrains.mps.ide.make" />
       </node>
       <node concept="m$_yC" id="cTNzgEuT4c" role="m$_yJ">
         <ref role="m$_y1" to="ffeo:5lGJ4Taqfsl" resolve="jetbrains.mps.ide.modelchecker" />
       </node>
       <node concept="m$_yC" id="2qynSUI4b9e" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:4k71ibbKLe8" />
+        <ref role="m$_y1" to="ffeo:4k71ibbKLe8" resolve="jetbrains.mps.core" />
       </node>
       <node concept="m$_yC" id="6pfW_jueeEg" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:4k71ibbLe59" />
+        <ref role="m$_y1" to="ffeo:4k71ibbLe59" resolve="com.intellij.modules.mps" />
       </node>
       <node concept="m$_yC" id="2qynSUI4bi_" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:1nTn8MoO6oQ" />
+        <ref role="m$_y1" to="ffeo:1nTn8MoO6oQ" resolve="jetbrains.mps.tool.make" />
       </node>
       <node concept="m$_yC" id="cTNzgEuT2a" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:5CFKsRWBBql" />
+        <ref role="m$_y1" to="ffeo:5CFKsRWBBql" resolve="jetbrains.mps.execution.api" />
       </node>
       <node concept="m$_yC" id="cTNzgEuT2j" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:5CFKsRWVb8B" />
+        <ref role="m$_y1" to="ffeo:5CFKsRWVb8B" resolve="jetbrains.mps.execution.configurations" />
       </node>
       <node concept="m$_yC" id="cTNzgEuT2t" role="m$_yJ">
-        <ref role="m$_y1" to="ffeo:5CFKsRWV4Nl" />
+        <ref role="m$_y1" to="ffeo:5CFKsRWV4Nl" resolve="jetbrains.mps.execution.languages" />
       </node>
     </node>
     <node concept="2G$12M" id="4vz$TZzHKEz" role="3989C9">
@@ -804,7 +804,7 @@
       <property role="BnDLt" value="true" />
       <property role="TrG5h" value="empty" />
       <property role="3LESm3" value="3cdb4a47-d119-42bf-bb03-cb8e07151a42" />
-      <property role="2GAjPV" value="true" />
+      <property role="3vZFNd" value="3kCd1ud3JDD/compile_ext" />
       <node concept="55IIr" id="7uCtVZm52YE" role="3LF7KH">
         <node concept="2Ry0Ak" id="7uCtVZm52Z2" role="iGT6I">
           <property role="2Ry0Am" value="solutions" />
@@ -841,7 +841,7 @@
     <node concept="2yufm1" id="7uCtVZlO8w1" role="1hWBAP">
       <ref role="30Vec$" node="4vz$TZzHKEJ" resolve="Sisyphus.boot" />
       <node concept="24YFd4" id="7uCtVZlUf3C" role="5id3f">
-        <ref role="24YFd5" node="4vz$TZzHKEc" />
+        <ref role="24YFd5" node="4vz$TZzHKEc" resolve="Sisyphus" />
       </node>
     </node>
     <node concept="2sgV4H" id="2CJ6FpXUbry" role="1l3spa">

@@ -87,7 +87,7 @@
         <property role="3F0ifm" value="Tasks:" />
       </node>
       <node concept="3F2HdR" id="4WPNq6kO_v4" role="3EZMnx">
-        <ref role="1NtTu8" to="6sp7:4WPNq6kO_u8" />
+        <ref role="1NtTu8" to="6sp7:4WPNq6kO_u8" resolve="tasks" />
         <node concept="2iRkQZ" id="4WPNq6kO_v6" role="2czzBx" />
       </node>
       <node concept="3F0ifn" id="3QHu4MUrzwu" role="3EZMnx" />

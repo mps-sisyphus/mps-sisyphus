@@ -127,7 +127,7 @@
   <node concept="1M2fIO" id="7uCtVZlO8aZ">
     <ref role="1M2myG" to="9peo:7uCtVZlO88Y" resolve="BuildPluginRunnerAspect" />
     <node concept="1N5Pfh" id="7uCtVZlO8b0" role="1Mr941">
-      <ref role="1N5Vy1" to="as3y:5iKxrmkn6qh" />
+      <ref role="1N5Vy1" to="as3y:5iKxrmkn6qh" resolve="solution" />
       <node concept="3dgokm" id="7uCtVZlO8y3" role="1N6uqs">
         <node concept="3clFbS" id="7uCtVZlO8y5" role="2VODD2">
           <node concept="3clFbF" id="7uCtVZlPfBi" role="3cqZAp">

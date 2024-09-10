@@ -6,7 +6,7 @@ A build tool for [JetBrains MPS](https://www.jetbrains.com/mps/) projects.
 
 Dependencies:
 
-* [JetBrains MPS](https://www.jetbrains.com/mps/) version 2023.3
+* [JetBrains MPS](https://www.jetbrains.com/mps/) version 2024.1
 * Maven
 
 Build the plugin

@@ -357,7 +357,7 @@
                                   <node concept="2OqwBi" id="3pzPpUGhkQ_" role="2Oq$k0">
                                     <node concept="30H73N" id="3pzPpUGhkM7" role="2Oq$k0" />
                                     <node concept="3TrEf2" id="5iKxrmkthif" role="2OqNvi">
-                                      <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" />
+                                      <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" resolve="solution" />
                                     </node>
                                   </node>
                                   <node concept="3TrcHB" id="5iKxrmkthM5" role="2OqNvi">
@@ -988,7 +988,7 @@
                                 </node>
                               </node>
                               <node concept="3Tsc0h" id="4lGpBZBKgmS" role="2OqNvi">
-                                <ref role="3TtcxE" to="3ior:4RPz6WoY4Cy" />
+                                <ref role="3TtcxE" to="3ior:4RPz6WoY4Cy" resolve="macros" />
                               </node>
                             </node>
                             <node concept="v3k3i" id="3pzPpUGiZzI" role="2OqNvi">
@@ -1078,7 +1078,7 @@
                                     <node concept="2OqwBi" id="jC3lHUGaUT" role="2Oq$k0">
                                       <node concept="2OqwBi" id="7RPG7Ru_iDC" role="2Oq$k0">
                                         <node concept="3Tsc0h" id="7RPG7Ru_iDD" role="2OqNvi">
-                                          <ref role="3TtcxE" to="3ior:34DbxDwQPuJ" />
+                                          <ref role="3TtcxE" to="3ior:34DbxDwQPuJ" resolve="aspects" />
                                         </node>
                                         <node concept="2OqwBi" id="3pzPpUGjxBe" role="2Oq$k0">
                                           <node concept="1iwH7S" id="3pzPpUGjxrr" role="2Oq$k0" />
@@ -1387,7 +1387,7 @@
                               <node concept="2OqwBi" id="5iKxrmkpx5c" role="2Oq$k0">
                                 <node concept="30H73N" id="5iKxrmkpx0j" role="2Oq$k0" />
                                 <node concept="3TrEf2" id="5iKxrmkpxtf" role="2OqNvi">
-                                  <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" />
+                                  <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" resolve="solution" />
                                 </node>
                               </node>
                               <node concept="2qgKlT" id="5iKxrmkpya5" role="2OqNvi">
@@ -1461,7 +1461,7 @@
                       <node concept="2OqwBi" id="5iKxrmkoFEt" role="2Oq$k0">
                         <node concept="30H73N" id="5iKxrmkoFzw" role="2Oq$k0" />
                         <node concept="3TrEf2" id="5iKxrmkoG56" role="2OqNvi">
-                          <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" />
+                          <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" resolve="solution" />
                         </node>
                       </node>
                       <node concept="3TrcHB" id="5iKxrmkoGNv" role="2OqNvi">
@@ -1485,7 +1485,7 @@
                     <node concept="2OqwBi" id="3ZNuxuVIKro" role="3clFbG">
                       <node concept="2ShNRf" id="3ZNuxuVIKrq" role="2Oq$k0">
                         <node concept="1pGfFk" id="3ZNuxuVIKrr" role="2ShVmc">
-                          <ref role="37wK5l" to="tken:2pk5iwY3nSs" />
+                          <ref role="37wK5l" to="tken:2pk5iwY3nSs" resolve="MPSModulesClosure" />
                           <node concept="2ShNRf" id="5iKxrmkoErD" role="37wK5m">
                             <node concept="2HTt$P" id="5iKxrmkoErB" role="2ShVmc">
                               <node concept="3Tqbb2" id="5iKxrmkoErC" role="2HTBi0">
@@ -1494,7 +1494,7 @@
                               <node concept="2OqwBi" id="5iKxrmkoEw6" role="2HTEbv">
                                 <node concept="30H73N" id="5iKxrmkoEsR" role="2Oq$k0" />
                                 <node concept="3TrEf2" id="5iKxrmkoEG6" role="2OqNvi">
-                                  <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" />
+                                  <ref role="3Tt5mk" to="as3y:5iKxrmkn6qh" resolve="solution" />
                                 </node>
                               </node>
                             </node>
@@ -1503,7 +1503,7 @@
                             <node concept="2OqwBi" id="7QNcMbqvuUc" role="2Oq$k0">
                               <node concept="2ShNRf" id="7QNcMbqvsxR" role="2Oq$k0">
                                 <node concept="1pGfFk" id="6tUicD6zinZ" role="2ShVmc">
-                                  <ref role="37wK5l" to="tken:1BCLQMpCXII" />
+                                  <ref role="37wK5l" to="tken:1BCLQMpCXII" resolve="MPSModulesClosure.ModuleDependenciesOptions" />
                                 </node>
                               </node>
                               <node concept="liA8E" id="7QNcMbqvuYc" role="2OqNvi">
@@ -1558,7 +1558,7 @@
                       </node>
                       <node concept="2ShNRf" id="3f8fofNjFh1" role="33vP2m">
                         <node concept="1pGfFk" id="3f8fofNjFh2" role="2ShVmc">
-                          <ref role="37wK5l" to="tken:3pzPpUFO9wL" />
+                          <ref role="37wK5l" to="tken:3pzPpUFO9wL" resolve="ModulePlugins" />
                           <node concept="2OqwBi" id="3f8fofNjFh3" role="37wK5m">
                             <node concept="30H73N" id="3f8fofNjFh4" role="2Oq$k0" />
                             <node concept="2Xjw5R" id="3f8fofNjFh5" role="2OqNvi">
@@ -1596,11 +1596,11 @@
                             <node concept="2OqwBi" id="3f8fofNk6It" role="2Oq$k0">
                               <node concept="30H73N" id="3f8fofNk6Iu" role="2Oq$k0" />
                               <node concept="3Tsc0h" id="3f8fofNk6Iv" role="2OqNvi">
-                                <ref role="3TtcxE" to="as3y:3a3EL8RMRJt" />
+                                <ref role="3TtcxE" to="as3y:3a3EL8RMRJt" resolve="requiredPlugin" />
                               </node>
                             </node>
                             <node concept="13MTOL" id="3f8fofNk6Iw" role="2OqNvi">
-                              <ref role="13MTZf" to="as3y:5I1s5NvuWcp" />
+                              <ref role="13MTZf" to="as3y:5I1s5NvuWcp" resolve="plugin" />
                             </node>
                           </node>
                           <node concept="ANE8D" id="3f8fofNk6Ix" role="2OqNvi" />

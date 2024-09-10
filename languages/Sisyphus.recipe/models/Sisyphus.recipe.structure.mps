@@ -48,7 +48,7 @@
     <property role="TrG5h" value="Recipe" />
     <property role="R4oN_" value="Recipe to build this project" />
     <property role="19KtqR" value="true" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="PrWs8" id="1v8e8QwCvN5" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
@@ -86,7 +86,7 @@
   <node concept="1TIwiD" id="4MwpHZg9jOR">
     <property role="EcuMT" value="5521526254612069687" />
     <property role="TrG5h" value="MPSBuild" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="4MwpHZg9jOU" role="1TKVEi">
       <property role="IQ2ns" value="5521526254612069690" />
       <property role="20kJfa" value="mpsBuild" />
@@ -99,7 +99,7 @@
   <node concept="1TIwiD" id="4WPNq6kPa2K">
     <property role="EcuMT" value="5707694196632363184" />
     <property role="TrG5h" value="MPSTest" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="4WPNq6kPa2N" role="1TKVEi">
       <property role="IQ2ns" value="5707694196632363187" />
       <property role="20kJfa" value="mpsBuild" />
@@ -112,7 +112,7 @@
   <node concept="1TIwiD" id="4WPNq6kPgiS">
     <property role="EcuMT" value="5707694196632388792" />
     <property role="TrG5h" value="Dependency" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyi" id="4WPNq6kPgiV" role="1TKVEl">
       <property role="IQ2nx" value="5707694196632388795" />
       <property role="TrG5h" value="sourceCode" />
@@ -130,7 +130,7 @@
   <node concept="1TIwiD" id="3QHu4MUrray">
     <property role="EcuMT" value="4444340678225146530" />
     <property role="TrG5h" value="MPSPlugin" />
-    <ref role="1TJDcQ" to="tpck:gw2VY9q" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyi" id="3QHu4MUrraA" role="1TKVEl">
       <property role="IQ2nx" value="4444340678225146534" />
       <property role="TrG5h" value="path" />

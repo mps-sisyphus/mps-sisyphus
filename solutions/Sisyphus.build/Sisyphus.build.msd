@@ -16,7 +16,7 @@
   <languageVersions>
     <language slang="l:ab5243aa-072b-4d28-98b9-21745a6642ca:Sisyphus.build.mps.runner" version="0" />
     <language slang="l:798100da-4f0a-421a-b991-71f8c50ce5d2:jetbrains.mps.build" version="0" />
-    <language slang="l:0cf935df-4699-4e9c-a132-fa109541cba3:jetbrains.mps.build.mps" version="7" />
+    <language slang="l:0cf935df-4699-4e9c-a132-fa109541cba3:jetbrains.mps.build.mps" version="8" />
     <language slang="l:427a473d-5177-432c-9905-bcbceb71b996:jetbrains.mps.build.mps.runner" version="0" />
     <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
   </languageVersions>
