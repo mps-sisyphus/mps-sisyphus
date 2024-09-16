@@ -134,7 +134,11 @@ public class Project {
         args.add("-Dmps.home=" + mpsHome);
         args.add("-Dant.home=" + antHome.toAbsolutePath());
         args.add("-Dsisyphus.home=" + Platform.instance().sisyphusHome());
-        args.add("-Dartifacts.Sisyphus=" + sisyphusMpsPlugins().toAbsolutePath());
+        if (isSisyphusInstalledInMPS()) {
+            args.add("-Dartifacts.Sisyphus=" + mpsHome.resolve(Path.of("plugins")).toAbsolutePath());
+        } else {
+            args.add("-Dartifacts.Sisyphus=" + sisyphusMpsPlugins().toAbsolutePath());
+        }
         args.add("-Dsisyphus.project=" + project.normalize().toAbsolutePath());
         args.add("-Dsisyphus.task=" + task);
         args.add("org.apache.tools.ant.launch.Launcher");
