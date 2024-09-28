@@ -26,6 +26,14 @@ public class Dependency {
         return name;
     }
 
+    public String getSourceCode() {
+        return sourceCode;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
     public List<Recipe> fetch() {
         logger.info("-".repeat(80));
         logger.info(String.format(" Fetch dependency: '%s ('%s')'", name, sourceCode));

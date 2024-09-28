@@ -2,6 +2,9 @@ package org.mps_sisyphus;
 
 import org.mps_sisyphus.artifact.IArtifact;
 import org.mps_sisyphus.artifact.MPSPlugin;
+import org.mps_sisyphus.bom.BillOfMaterial;
+import org.mps_sisyphus.bom.Bom;
+import org.mps_sisyphus.bom.JsonBomWriter;
 import org.mps_sisyphus.task.ITask;
 
 import java.io.IOException;
@@ -62,6 +65,11 @@ public class Project {
                 task.run(projectPath, sisyphusMpsPlugins());
             }
             recipes.add(recipe);
+
+            final Path sbomFile = buildFolder().resolve("sbom.json");
+            final Bom bom = BillOfMaterial.generate(recipe);
+            JsonBomWriter.writeToFile(bom, sbomFile);
+            logger.info(String.format("Generated SBOM '%s'", sbomFile));
         }
 
         return recipes;
@@ -201,5 +209,9 @@ public class Project {
 
     private Path sisyphusPluginFolder() {
         return Path.of(System.getenv("SISYPHUS_HOME"));
+    }
+
+    private Path buildFolder() {
+        return projectPath.resolve("build");
     }
 }
