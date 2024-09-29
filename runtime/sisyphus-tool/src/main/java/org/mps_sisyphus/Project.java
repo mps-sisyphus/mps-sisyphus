@@ -134,9 +134,17 @@ public class Project {
             runXml = sisyphusRunXml();
         }
 
+        final Path tmpFolder = sisyphusTmp().resolve(UUID.randomUUID().toString());
+        try {
+            Files.createDirectories(tmpFolder);
+        } catch (IOException e) {
+            throw new RuntimeException(String.format("Error creating temp '%s' folder.", tmpFolder), e);
+        }
+
         List<String> args = new ArrayList<>();
         args.add("-cp");
         args.add(antHome.resolve(Path.of("ant.jar")).toAbsolutePath() + platform.pathVariableSeparator() + antHome.resolve("ant-launcher.jar").toAbsolutePath());
+        args.add("-Dbuild.dir=" + tmpFolder.toAbsolutePath());
         args.add("-Dmps.home=" + mpsHome);
         args.add("-Dant.home=" + antHome.toAbsolutePath());
         args.add("-Dsisyphus.home=" + Platform.instance().sisyphusHome());
@@ -158,6 +166,7 @@ public class Project {
                 throw new RuntimeException(String.format("Error deleting '%s'", sisyphusRunWithPluginsXml), e);
             }
         }
+        Platform.deleteFolder(tmpFolder.toFile());
     }
 
     private Path createSisyphusRunXmlWithPlugins(final Map<String, Path> mpsPlugins) {
@@ -213,6 +222,10 @@ public class Project {
 
     private Path sisyphusFolder() {
         return projectPath.resolve(Path.of("sisyphus"));
+    }
+
+    private Path sisyphusTmp() {
+        return sisyphusFolder().resolve("tmp");
     }
 
     private Path sisyphusPluginFolder() {
