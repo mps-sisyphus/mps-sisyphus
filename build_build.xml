@@ -56,10 +56,12 @@
       <plugin path="${artifacts.mps}/plugins/mps-build" id="jetbrains.mps.build" />
       <plugin path="${artifacts.mps}/plugins/mps-core" id="jetbrains.mps.core" />
       <chunk>
+        <module file="${basedir}/languages/Sisyphus.build.mps.patch/Sisyphus.build.mps.patch.mpl" />
         <module file="${basedir}/languages/Sisyphus.build.mps.runner/Sisyphus.build.mps.runner.mpl" />
       </chunk>
       <chunk>
         <module file="${basedir}/solutions/Sisyphus.build/Sisyphus.build.msd" />
+        <module file="${basedir}/solutions/Sisyphus.run/Sisyphus.run.msd" />
       </chunk>
       <jvmargs>
         <arg value="-ea" />
@@ -210,7 +212,148 @@
     </copy>
   </target>
   
-  <target name="java.compile.Sisyphus.build">
+  <target name="java.compile.Sisyphus.build.mps.patch" depends="fetchDependencies">
+    <mkdir dir="${basedir}/languages/Sisyphus.build.mps.patch/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/Sisyphus.build.mps.patch" />
+    <javac destdir="${build.tmp}/java/out/Sisyphus.build.mps.patch" fork="true" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/languages/Sisyphus.build.mps.patch/source_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-problem.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-feedback-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messages-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messages-for-rules.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/app.jar" />
+        <fileset file="${artifacts.mps}/lib/app-client.jar" />
+        <fileset file="${artifacts.mps}/lib/lib.jar" />
+        <fileset file="${artifacts.mps}/lib/lib-client.jar" />
+        <fileset file="${artifacts.mps}/lib/util.jar" />
+        <fileset file="${artifacts.mps}/lib/util_rt.jar" />
+        <fileset file="${artifacts.mps}/lib/util-8.jar" />
+        <fileset file="${artifacts.mps}/lib/forms_rt.jar" />
+        <fileset file="${artifacts.mps}/lib/java-frontback.jar" />
+        <fileset file="${artifacts.mps}/lib/java-impl.jar" />
+        <fileset file="${artifacts.mps}/lib/jps-model.jar" />
+        <fileset file="${artifacts.mps}/lib/testFramework.jar" />
+        <fileset file="${artifacts.mps}/lib/stats.jar" />
+        <fileset file="${artifacts.mps}/lib/platform-loader.jar" />
+        <fileset file="${artifacts.mps}/lib/trove.jar" />
+        <fileset file="${artifacts.mps}/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.workflow.jar" />
+        <fileset file="${artifacts.mps}/languages/xml/jetbrains.mps.core.xml.jar" />
+        <fileset file="${artifacts.mps}/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.scopes.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.smodel.query.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
+      </classpath>
+    </javac>
+    <copy todir="${build.tmp}/java/out/Sisyphus.build.mps.patch">
+      <fileset dir="${basedir}/languages/Sisyphus.build.mps.patch/source_gen" excludes="**/*.java" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.Sisyphus.build.mps.patch.generator" depends="java.compile.Sisyphus.build.mps.patch, fetchDependencies">
+    <mkdir dir="${basedir}/languages/Sisyphus.build.mps.patch/generator/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/Sisyphus.build.mps.patch.generator" />
+    <javac destdir="${build.tmp}/java/out/Sisyphus.build.mps.patch.generator" fork="true" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/languages/Sisyphus.build.mps.patch/generator/source_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-problem.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-feedback-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messages-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messages-for-rules.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <pathelement path="${build.tmp}/java/out/Sisyphus.build.mps.patch" />
+        <fileset file="${artifacts.mps}/lib/annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/app.jar" />
+        <fileset file="${artifacts.mps}/lib/app-client.jar" />
+        <fileset file="${artifacts.mps}/lib/lib.jar" />
+        <fileset file="${artifacts.mps}/lib/lib-client.jar" />
+        <fileset file="${artifacts.mps}/lib/util.jar" />
+        <fileset file="${artifacts.mps}/lib/util_rt.jar" />
+        <fileset file="${artifacts.mps}/lib/util-8.jar" />
+        <fileset file="${artifacts.mps}/lib/forms_rt.jar" />
+        <fileset file="${artifacts.mps}/lib/java-frontback.jar" />
+        <fileset file="${artifacts.mps}/lib/java-impl.jar" />
+        <fileset file="${artifacts.mps}/lib/jps-model.jar" />
+        <fileset file="${artifacts.mps}/lib/testFramework.jar" />
+        <fileset file="${artifacts.mps}/lib/stats.jar" />
+        <fileset file="${artifacts.mps}/lib/platform-loader.jar" />
+        <fileset file="${artifacts.mps}/lib/trove.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.workflow.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-build/languages/build/jetbrains.mps.build.workflow-generator.jar" />
+        <fileset file="${artifacts.mps}/languages/xml/jetbrains.mps.core.xml.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
+      </classpath>
+    </javac>
+    <copy todir="${build.tmp}/java/out/Sisyphus.build.mps.patch.generator">
+      <fileset dir="${basedir}/languages/Sisyphus.build.mps.patch/generator/source_gen" excludes="**/*.java" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.java.modules.cycle.1">
+    <mkdir dir="${build.tmp}/java.modules.cycle.1" />
+    <javac destdir="${build.tmp}/java.modules.cycle.1" fork="true" encoding="utf8" nowarn="true" includeantruntime="false">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/solutions/Sisyphus.build/source_gen" />
+        <path location="${basedir}/solutions/Sisyphus.run/source_gen" />
+      </src>
+      <classpath />
+    </javac>
+  </target>
+  
+  <target name="java.compile.Sisyphus.build" depends="java.compile.java.modules.cycle.1">
     <mkdir dir="${basedir}/solutions/Sisyphus.build/source_gen" />
     <mkdir dir="${build.tmp}/java/out/Sisyphus.build" />
     <javac destdir="${build.tmp}/java/out/Sisyphus.build" fork="true" encoding="utf8" includeantruntime="false" debug="true">
@@ -218,16 +361,34 @@
       <src>
         <path location="${basedir}/solutions/Sisyphus.build/source_gen" />
       </src>
-      <classpath />
+      <classpath path="${build.tmp}/java.modules.cycle.1" />
     </javac>
     <copy todir="${build.tmp}/java/out/Sisyphus.build">
       <fileset dir="${basedir}/solutions/Sisyphus.build/source_gen" excludes="**/*.java" />
     </copy>
   </target>
   
+  <target name="java.compile.Sisyphus.run" depends="java.compile.java.modules.cycle.1">
+    <mkdir dir="${basedir}/solutions/Sisyphus.run/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/Sisyphus.run" />
+    <javac destdir="${build.tmp}/java/out/Sisyphus.run" fork="true" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/solutions/Sisyphus.run/source_gen" />
+      </src>
+      <classpath path="${build.tmp}/java.modules.cycle.1" />
+    </javac>
+    <copy todir="${build.tmp}/java/out/Sisyphus.run">
+      <fileset dir="${basedir}/solutions/Sisyphus.run/source_gen" excludes="**/*.java" />
+    </copy>
+  </target>
+  
   <target name="cleanSources">
+    <delete dir="${basedir}/languages/Sisyphus.build.mps.patch/source_gen" />
+    <delete dir="${basedir}/languages/Sisyphus.build.mps.patch/generator/source_gen" />
     <delete dir="${basedir}/languages/Sisyphus.build.mps.runner/source_gen" />
     <delete dir="${basedir}/languages/Sisyphus.build.mps.runner/generator/source_gen" />
     <delete dir="${basedir}/solutions/Sisyphus.build/source_gen" />
+    <delete dir="${basedir}/solutions/Sisyphus.run/source_gen" />
   </target>
 </project>
