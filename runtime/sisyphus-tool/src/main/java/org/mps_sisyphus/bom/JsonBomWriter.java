@@ -1,22 +1,23 @@
 package org.mps_sisyphus.bom;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
-public class JsonBomWriter {
-    private int indent = 0;
-    private final StringBuilder sb;
-
+public class JsonBomWriter extends BomWriter {
     public JsonBomWriter() {
-        sb = new StringBuilder();
+        super();
     }
 
     public static void writeToFile(final Bom bom, final Path bomFile) {
         JsonBomWriter jbw = new JsonBomWriter();
         try {
             jbw.visitBom(bom);
-            Files.writeString(bomFile, jbw.sb.toString());
+            Files.writeString(bomFile, jbw.sb.toString(), StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             throw new RuntimeException(String.format("Error writing '%s'", bomFile), e);
         }
@@ -152,9 +153,5 @@ public class JsonBomWriter {
         sb.append("\n");
         writeIndent();
         sb.append("}");
-    }
-
-    private void writeIndent() {
-        sb.append("  ".repeat(indent));
     }
 }

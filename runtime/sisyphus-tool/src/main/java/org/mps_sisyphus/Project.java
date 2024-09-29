@@ -5,6 +5,7 @@ import org.mps_sisyphus.artifact.MPSPlugin;
 import org.mps_sisyphus.bom.BillOfMaterial;
 import org.mps_sisyphus.bom.Bom;
 import org.mps_sisyphus.bom.JsonBomWriter;
+import org.mps_sisyphus.bom.XmlBomWriter;
 import org.mps_sisyphus.task.ITask;
 
 import java.io.IOException;
@@ -66,10 +67,7 @@ public class Project {
             }
             recipes.add(recipe);
 
-            final Path sbomFile = buildFolder().resolve("sbom.json");
-            final Bom bom = BillOfMaterial.generate(recipe);
-            JsonBomWriter.writeToFile(bom, sbomFile);
-            logger.info(String.format("Generated SBOM '%s'", sbomFile));
+            generateSbom(recipe);
         }
 
         return recipes;
@@ -184,6 +182,16 @@ public class Project {
         } catch (IOException e) {
             throw new RuntimeException(String.format("Error creating '%s'", tmpSisyphusRunXml), e);
         }
+    }
+
+    private void generateSbom(final Recipe recipe) {
+        final Path sbomJsonFile = buildFolder().resolve("sbom.json");
+        final Bom bom = BillOfMaterial.generate(recipe);
+        JsonBomWriter.writeToFile(bom, sbomJsonFile);
+        logger.info(String.format("Generated SBOM format JSON: '%s'", sbomJsonFile));
+        final Path sbomXmlFile = buildFolder().resolve("sbom.xml");
+        XmlBomWriter.writeToFile(bom, sbomXmlFile);
+        logger.info(String.format("Generated SBOM format XML: '%s'", sbomXmlFile));
     }
 
     private Path sisyphusRunXml() {
